@@ -1,0 +1,24 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_FE_Travel_001292 alias Travel
+
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Booking { create; }
+
+  use action ShowTestMessage;
+  use action CancelTravel;
+}
+
+define behavior for ZC_FE_Booking_001292 alias Booking
+
+{
+  use update;
+  use delete;
+
+  use association _Travel;
+}

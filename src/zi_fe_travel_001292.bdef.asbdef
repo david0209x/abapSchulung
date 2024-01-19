@@ -1,0 +1,82 @@
+managed implementation in class zbp_Da0209_travel unique;
+strict (2);
+
+define behavior for ZI_FE_Travel_001292 alias Travel
+persistent table ZFE_ATRAV_001292
+lock master
+
+authorization master (instance)
+{
+  create;
+  update;
+  delete;
+
+  association _Booking {create; }
+
+  static action ShowTestMessage;
+  action CancelTravel result [1] $self;
+
+  validation ValidateDates on save { create; }
+  validation ValidateCustomer on save { create; }
+  validation ValidateAgency on save { create; }
+
+  determination DetermineStatus on modify { create; }
+  determination DetermineTravelId on modify { create; }
+
+  field ( readonly, numbering : managed ) TravelUuid;
+  field ( mandatory : create ) AgencyId, BeginDate, CustomerId, Description, EndDate;
+  field ( readonly : update ) AgencyId, BeginDate, CustomerId, Description, EndDate;
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, Status, TravelId;
+
+  mapping for ZFE_ATRAV_001292
+  {
+    TravelUUID = TRAVEL_UUID;
+    TravelID = TRAVEL_ID;
+    AgencyID = AGENCY_ID;
+    CustomerID = CUSTOMER_ID;
+    BeginDate = BEGIN_DATE;
+    EndDate = END_DATE;
+    BookingFee = BOOKING_FEE;
+    TotalPrice = TOTAL_PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    Description = DESCRIPTION;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    Status = Overall_Status;
+  }
+}
+
+define behavior for ZI_FE_Booking_001292 alias Booking
+persistent table ZFE_ABOOK_001292
+lock dependent by _Travel
+authorization dependent by _Travel
+
+{
+  update;
+  delete;
+
+  association _Travel;
+
+  field ( readonly, numbering : managed ) BookingUuid;
+  field ( readonly ) TravelUuid;
+
+  mapping for ZFE_ABOOK_001292
+  {
+    BookingUUID = BOOKING_UUID;
+    TravelUUID = TRAVEL_UUID;
+    BookingID = BOOKING_ID;
+    BookingDate = BOOKING_DATE;
+    CustomerID = CUSTOMER_ID;
+    CarrierID = CARRIER_ID;
+    ConnectionID = CONNECTION_ID;
+    FlightDate = FLIGHT_DATE;
+    FlightPrice = FLIGHT_PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    CreatedBy = CREATED_BY;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+}

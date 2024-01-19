@@ -1,0 +1,50 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeNamePlural: 'Bookings',
+  typeName: 'Booking',
+  title.value: 'BookingId',
+  description.value: 'BookingDate'
+}
+annotate view ZI_FE_Booking_001292
+  with 
+{
+  /* Facets */
+  @UI.facet:
+  [
+    { position: 10, targetQualifier: 'CustomerDetails', label: 'Customer Details', type: #FIELDGROUP_REFERENCE },
+    { position: 20, targetQualifier: 'BookingId', label: 'Booking Details', type: #FIELDGROUP_REFERENCE },
+    { position: 30, targetQualifier: 'FlightDetails', label: 'Flight Details', type: #FIELDGROUP_REFERENCE }
+  ]
+
+  /* Fields */
+  
+  @UI.fieldGroup: [{ position: 10, qualifier: 'CustomerDetails' }]
+  CustomerID;
+  
+  @UI.fieldGroup: [{ position: 10, qualifier: 'BookingId' }]
+  TravelUUID;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'BookingId' }]
+  BookingID;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'BookingId' }]
+  BookingDate;
+  
+  @UI.lineItem: [{ position: 40, criticalityRepresentation: #WITHOUT_ICON }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'FlightDetails' }]
+  FlightDate;
+
+  @UI.lineItem: [{ position: 50, criticalityRepresentation: #WITHOUT_ICON }]
+  @UI.selectionField: [{ position: 60 }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'FlightDetails', criticalityRepresentation: #WITHOUT_ICON }]
+  FlightPrice;
+
+  @UI.fieldGroup: [{ position: 60, qualifier: 'FlightDetails' }]
+  CarrierID;
+
+  
+}

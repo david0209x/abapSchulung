@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>This is a Test Message from &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No Agency found for Agency ID &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>No Customer found for Customer ID &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Begin Date must be before End Date</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Travel &amp;1 is already cancelled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_DA0209_TRAVEL</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Travel &amp;1 was successfully cancelled</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
